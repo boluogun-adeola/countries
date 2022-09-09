@@ -41,6 +41,14 @@ const searchCountries = (searchValue)=>{
     setFilterCountry(Countries)
   }
 }
+const getCountrybyRegion = async(region)=>{
+  await axios.get(`https://restcountries.com/v3.1/region/${region}`)
+  .then((response) => {
+    setCountries(response.data);
+
+    setLoading(false);
+   })
+}
   return (
     <>
       {isLoading ? (
@@ -49,7 +57,7 @@ const searchCountries = (searchValue)=>{
         </div>
       ) : (
         <section className={darkMode?`homepage countries-dark`:`homepage countries-light`}>
-        <Filter searchCountries={searchCountries} searchCountry={searchCountry}/>
+        <Filter searchCountries={searchCountries} searchCountry={searchCountry} onSelect={getCountrybyRegion}/>
         {searchCountry.length>0?(
                 <section className="countries-homepage">
            

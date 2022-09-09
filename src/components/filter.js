@@ -1,23 +1,35 @@
-import React from "react";
 
-const Filter = ({ searchCountries, searchCountry }) => {
+import React,{useContext} from "react";
+import { ThemeContext } from "../components/ThemeProvider";
+
+const Filter = ({ searchCountries, searchCountry, onSelect }) => {
+  const {darkMode} = useContext(ThemeContext)
+   
+ 
+    const handleSelect=e=>{
+      const region = e.target.value;
+      onSelect(region)
+    }
   return (
-    <form className="form" id="form">
+    <form className ={darkMode?`form form-dark`:`form form-light`} id="form">
       <input
         type="text"
         name="search"
-        placeholder="Search Country"
+        placeholder="search for a country ..."
         value={searchCountry}
         onChange={(e)=>searchCountries(e.target.value)}
       />
       <div>
-        <select name="select" className="select">
-          <option value="Filter by Region">Filter by Region</option>
-          <option value="Africa">Africa</option>
-          <option value="Americas">Americas</option>
-          <option value="Asia">Asia</option>
-          <option value="Europe">Europe</option>
-          <option value="Oceania">Oceania</option>
+        <select name="select" className="select" onChange={handleSelect}>
+          <optgroup>
+          <option className="option" value="" hidden>Filter by Region</option>
+          <option className="option"  value="africa">Africa</option>
+          <option className="option"  value="americas">Americas</option>
+          <option  className="option" value="asia">Asia</option>
+          <option className="option"  value="europe">Europe</option>
+          <option className="option" value="oceania">Oceania</option>
+          </optgroup>
+         
         </select>
       </div>
     </form>

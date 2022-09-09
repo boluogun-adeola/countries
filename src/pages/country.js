@@ -17,7 +17,6 @@ const Country = () => {
       .get(`https://restcountries.com/v3.1/alpha/${name}`)
       .then((response) => {
         setCountry(response.data);
-        console.log(response.data);
         setLoading(false);
       })
       .catch((error) => {
@@ -104,7 +103,7 @@ const Country = () => {
                       <p>Border Countries:</p>
                       <div key={country.name} className="borders">
                         { country.borders? country.borders.map((country, index) => (
-                          <button className="border-btn">
+                          <button className="border-btn" key={index}>
                              <Link to={`/${country.toLowerCase()}`}>
                             <div className="borders" key={index}>
                               {country}

@@ -3,7 +3,7 @@ import { ThemeProvider } from "./components/ThemeProvider";
 import Header from "./components/header"
 import Homepage from "./pages/homepage";
 import Country from "./pages/country";
-import ErrorPage from "./pages/error";
+
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
         <Route path="/" element={<Homepage />} />
         <Route path=":name" element={<Country />} />
 
-        <Route Path="*" element={<ErrorPage />} />
+        
       </Routes>
     </Router>
     </ThemeProvider>
