@@ -18,7 +18,6 @@ const Homepage = () => {
       .get(`https://restcountries.com/v3.1/all`)
       .then((response) => {
         setCountries(response.data);
-        console.log(response.data);
         setLoading(false);
       })
       .catch((error) => {
@@ -50,13 +49,13 @@ const getCountrybyRegion = async(region)=>{
    })
 }
   return (
-    <>
+    <div className={darkMode?`countries-dark`:`countries-light`}>
       {isLoading ? (
         <div className="globe">
           <FaGlobe />
         </div>
       ) : (
-        <section className={darkMode?`homepage countries-dark`:`homepage countries-light`}>
+        <section className="homepage">
         <Filter searchCountries={searchCountries} searchCountry={searchCountry} onSelect={getCountrybyRegion}/>
         {searchCountry.length>0?(
                 <section className="countries-homepage">
@@ -126,7 +125,7 @@ const getCountrybyRegion = async(region)=>{
           </section>
     
       )}
-    </>
+    </div>
   );
 };
 

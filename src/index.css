@@ -119,6 +119,7 @@ input{
   border-radius:0.25rem;
   font-size:0.95rem;
   box-shadow:0px 3px 15px rgba(0,0,0,0.2);
+  background-color: var(--clr-white);
   
 }
 input::-webkit-input-placeholder{
@@ -132,6 +133,7 @@ select{
   cursor:pointer;
   box-shadow:0px 3px 15px rgba(0,0,0,0.2);
   color:var(--clr-light-mode-input-gray);
+  background-color: var(--clr-white);
   font-size:0.9rem;
   
 
@@ -344,17 +346,7 @@ font-size:1.5rem;
   color:var(--clr-white);
  
 }
-@media only screen and (max-width:2560px){
-  .homepage{
-    padding-top:20rem;
-  }
- 
-}
-@media only screen and (max-width:1440px){
-  .homepage{
-    padding-top:6rem;
-  }
-}
+
 @media only screen and (max-width:1300px){
  
   input{
